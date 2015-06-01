@@ -35,6 +35,7 @@ for dirr in dirList:
 
 writeIndex(dirList)
 writeMain(title, description)
+writeBlank()
 
 # table of content for each alphabet directory
 al = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']

@@ -98,10 +98,8 @@ def writeTOC(dirList, st):
 		classlist = findClass(dirr)
 
 		body = body + '\t\t\t<p style="margin-bottom: -10px;"></p> \n '
-#		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr[2:] + '_h.html" target="center">' + dirr[2:] + '</a></p>\n'
-#		else: body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr + '_h.html" target="center">' + dirr + '</a></p>\n'
-		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr[2:] + '</a></p>\n'
-		else: body = body + '\t\t\t<p style="margin-bottom: -16px;"><a>' + dirr + '</a></p>\n'
+		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr[2:] + '</p>\n'
+		else: body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr + '</p>\n'
 
 
 		if(len(classlist.classes) > 0): 
@@ -111,8 +109,8 @@ def writeTOC(dirList, st):
 				header = os.path.basename(header)
 				header = header[:-2]
 
-				if(dirr == '.'): body = body + '\t\t\t\t<li><a style="font-size: 95%" href="' + dirr + '/' + header + '_h.html" target="center">' + header + '</a></li>\n'
-				else: body = body + '\t\t\t\t<li><a href="' + dirr + '/' + header + '_h.html" target="center">' + header + '</a></li>\n' 
+				if(dirr == '.'): body = body + '\t\t\t\t<li><a style="font-size: 95%" href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=''blank.html'' ">' + header + '</a></li>\n'
+				else: body = body + '\t\t\t\t<li><a href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=\'blank.html\'">' + header + '</a></li>\n' 
 		
 			body  = body + '\t\t\t</ul>\n'	
 
@@ -120,7 +118,7 @@ def writeTOC(dirList, st):
 
 		for fl in classlist.files: 
 			flName = os.path.basename(fl)
-			body = body + '\t\t\t<a class="file" href="' + dirr + '/' + flName.replace('.', '_') + '.html" target="center">' + flName + '</a>\n'
+			body = body + '\t\t\t<a class="file" href="' + dirr + '/' + flName.replace('.', '_') + '.html" target="center" onClick="parent.frames[2].location.href=\'blank.html\'">' + flName + '</a>\n'
 		body = body + '\t\t\t<!--  --------------------  -->\n\n'
 		
 	body = body + '\t\t</nav>\n'
@@ -367,6 +365,24 @@ def writeFiles(dirr):
 		fi.write('</html>')
 		fi.close()
 		os.chdir(cwd)
+#-----------------------------------------------------------
+
+def writeBlank():
+	os.chdir('Html')
+	fi = open('blank.html', 'w')
+
+	head = '<!DOCTYPE HTML> ''\n''\
+<html lang='"en"'>\n \
+	<head>\n \
+		<meta charset="utf-8" />\n \
+		<title> </title>\n \
+	</head>\n\n \
+	<body> </body>\n '
+
+        fi.write(head)
+        fi.write('</html>')
+        os.chdir('..')
+
 #-----------------------------------------------------------
 
 def alphaTonum(alpha):
