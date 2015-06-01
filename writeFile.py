@@ -98,8 +98,11 @@ def writeTOC(dirList, st):
 		classlist = findClass(dirr)
 
 		body = body + '\t\t\t<p style="margin-bottom: -10px;"></p> \n '
-		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr[2:] + '_h.html" target="center">' + dirr[2:] + '</a></p>\n'
-		else: body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr + '_h.html" target="center">' + dirr + '</a></p>\n'
+#		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr[2:] + '_h.html" target="center">' + dirr[2:] + '</a></p>\n'
+#		else: body = body + '\t\t\t<p style="margin-bottom: -16px;"><a href="' + dirr + '_h.html" target="center">' + dirr + '</a></p>\n'
+		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr[2:] + '</a></p>\n'
+		else: body = body + '\t\t\t<p style="margin-bottom: -16px;"><a>' + dirr + '</a></p>\n'
+
 
 		if(len(classlist.classes) > 0): 
 			body = body + '\t\t\t<ul>\n'
