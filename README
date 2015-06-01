@@ -1,7 +1,7 @@
 Creates document for C++ code in directory hierarchy. Output is in html. It is written in python.
 1) First setup initFile.txt file. It contains the information that will be extracted to write in the document.
 2) "exclude" are the files and directories that are to be excluded from including in documentation.
-Run ./docmakerpy from the root directory of the code.
+Setup path for docmaker.py to docmaker and run docmaker from the root directory of the code.
 
 send your comment: coder5678@gmail.com
 
