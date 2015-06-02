@@ -15,7 +15,7 @@ from initialize import *
 doctype = '<!DOCTYPE HTML> ''\n'' \
 <html lang=en> ''\n'' \
 <head> ''\n'' \
-	<meta charset="tf-8" /> ''\n'' \
+	<meta charset="utf-8" /> ''\n'' \
 	<title>' + 'Title' + '</title> ''\n'' \
 	<link rel="stylesheet" href="style.css" type="text/css"/> ''\n'' \
 </head> ''\n\n'' '
@@ -34,6 +34,7 @@ def writeIndex(dirList):
 		if(lt == '.'): continue
 		alpha[lt.upper()].append(dirr)
 	#-------------------------------
+#	<a style="margin-right: - 20px; font-size: 80%" href="alpha.html" target="left">' + 'Alphabatical' + '</a> ''\n'' \
 	
 	body = '\t<body> ''\n'' '
 	body = body + '\t\t<div>''\n'' '
@@ -98,7 +99,8 @@ def writeTOC(dirList, st):
 		classlist = findClass(dirr)
 
 		body = body + '\t\t\t<p style="margin-bottom: -10px;"></p> \n '
-		if(st == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr[2:] + '</p>\n'
+		if(st == '.' and not dirr == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr[2:] + '</p>\n'
+		elif(st == '.' and dirr == '.'): body = body + '\t\t\t<p style="margin-bottom: -16px;">' + 'root' + '</p>\n'
 		else: body = body + '\t\t\t<p style="margin-bottom: -16px;">' + dirr + '</p>\n'
 
 
@@ -109,9 +111,10 @@ def writeTOC(dirList, st):
 				header = os.path.basename(header)
 				header = header[:-2]
 
-				if(dirr == '.'): body = body + '\t\t\t\t<li><a style="font-size: 95%" href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=''blank.html'' ">' + header + '</a></li>\n'
-				else: body = body + '\t\t\t\t<li><a href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=\'blank.html\'">' + header + '</a></li>\n' 
-		
+#				if(dirr == '.'): body = body + '\t\t\t\t<li><a style="font-size: 95%" href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=''blank.html'' ">' + header + '</a></li>\n'
+#				else: body = body + '\t\t\t\t<li><a href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=\'blank.html\'">' + header + '</a></li>\n' 
+				body = body + '\t\t\t\t<li><a style="font-size: 95%" href="' + dirr + '/' + header + '_h.html" target="center" onClick="parent.frames[2].location.href=\'blank.html\'">' + header + '</a></li>\n' 
+
 			body  = body + '\t\t\t</ul>\n'	
 
 		body = body + '\t\t\t<p style="margin-bottom: -14px;"></p>\n'

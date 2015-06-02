@@ -15,6 +15,14 @@ from writeFile import *
 import initialize
 import style
 
+if not os.path.isfile('initFile.txt'):
+	print 'initFile.txt file does not exist, creating one. Modify it and run docmaker again.'
+	fl = open('initFile.txt', 'w')
+	fl.write('title: My Project\ndescription: My Project discription\n exclude:  Html  arxiv  CMakeFiles')
+	fl.close()
+	sys.exit()
+#-----------------------------------------------------------
+
 arg = ''
 args = sys.argv
 if(len(args) == 2): arg = args[1]

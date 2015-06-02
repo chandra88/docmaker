@@ -40,7 +40,7 @@ def init(dirr):
 		if(a == 0):
 			if not os.path.exists('Html/' + dirname): os.makedirs('Html/' + dirname)
 			listDir.append(dirname)
-
+	listDir.append('.')	
         return listDir, Title, Description
 #-----------------------------------------------------------
 
